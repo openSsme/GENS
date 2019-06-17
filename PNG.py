@@ -57,8 +57,8 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
 		prefix = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
-		number = int(input ("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m") )
-		limit = int(input ("\n                \033[1;32mEnter range maximum:  \033[1;m") )
+		number = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
+		limit = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
 
 		if number >= limit:
 			Msg.msg3()
@@ -73,7 +73,7 @@ class generator():
 	def generate2():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input("\n                \033[1;32mEnter carrier prefix number (+97254 or similar, 050, 052, 053, 054, 057, 059):  \033[1;m")
+		prefix = input("\n                \033[1;32mEnter prefix (carrier prefix, area code, country code):  \033[1;m")
 		number = 1000000
 		limit = 9999999
 
@@ -84,7 +84,7 @@ class generator():
 	def generate3():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input('\n' + "\033[1;32mEnter area code (+1555 or similar, 02, 03, 04,072, 077, 08, 09):  \033[1;m")
+		prefix = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
 		number = 5000000
 		limit = 9999999
 
