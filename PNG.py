@@ -114,8 +114,6 @@ class generator():
 		print('''\
 
 
-
-
 		\033[1;38mDone generating list of numbers prefixed with '{}'.\033[1;m '''.format(prefix) + '''
 
 		\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m
