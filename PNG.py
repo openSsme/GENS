@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # coding: utf-8
 ###
-###  Phone Numbers Generator v1.32
+###  Phone Numbers Generator v1.33
 ###
-###  Copyright 2012 openSsme <openSsme@gmail.com>
+###  Copyright 2012 - 2019 404 <openSsme@gmail.com>
 ###
 ###  This program is free software; you can redistribute it and/or modify
 ###  it under the terms of the GNU General Public License as published by
