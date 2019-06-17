@@ -73,7 +73,7 @@ class generator():
 	def generate2():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input("\n                \033[1;32mEnter carrier prefix number (050, 052, 053, 054, 057, 059):  \033[1;m")
+		prefix = input("\n                \033[1;32mEnter carrier prefix number (+97254 or similar, 050, 052, 053, 054, 057, 059):  \033[1;m")
 		number = 1000000
 		limit = 9999999
 
@@ -84,7 +84,7 @@ class generator():
 	def generate3():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input('\n' + "\033[1;32mEnter area code (02, 03, 04,072, 077, 08, 09):  \033[1;m")
+		prefix = input('\n' + "\033[1;32mEnter area code (+1555 or similar, 02, 03, 04,072, 077, 08, 09):  \033[1;m")
 		number = 5000000
 		limit = 9999999
 
