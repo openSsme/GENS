@@ -57,15 +57,13 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
-			f.close()
+			os.system('del .txt' if os.name == 'nt' else 'rm .txt')
 			clear()
 			banner()
 			main()
 		else:
 			p = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
 			n = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
-			l = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
-
 			if n >= l:
 				Msg.msg3()
 				time.sleep(3)
@@ -73,6 +71,7 @@ class generator():
 				banner()
 				main()
 			else:
+				l = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
 				Msg.msg1() if l >= 1000000 else Msg.msg2()
 				generator.action_generate(n, f, p, l)
 
@@ -80,7 +79,7 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
-			f.close()
+			os.system('del .txt' if os.name == 'nt' else 'rm .txt')
 			clear()
 			banner()
 			main()
@@ -96,7 +95,7 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
-			f.close()
+			os.system('del .txt' if os.name == 'nt' else 'rm .txt')
 			clear()
 			banner()
 			main()
