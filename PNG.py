@@ -56,69 +56,70 @@ class generator():
 	def generate1():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
-		number = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
-		limit = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
+		p = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
+		n = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
+		l = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
 
-		if number >= limit:
+		if n >= l:
 			Msg.msg3()
 			time.sleep(3)
 			clear()
 			banner()
 			main()
 
-		Msg.msg1() if limit >= 1000000 else Msg.msg2()
-		generator.action_generate(number, f, prefix, limit)
+		Msg.msg1() if l >= 1000000 else Msg.msg2()
+		generator.action_generate(n, f, p, l)
 
 	def generate2():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input("\n                \033[1;32mEnter prefix (carrier prefix, area code, country code):  \033[1;m")
-		number = 1000000
-		limit = 9999999
+		p = input("\n                \033[1;32mEnter prefix (carrier prefix, area code, country code):  \033[1;m")
+		n = 1000000
+		l = 9999999
 
 		Msg.msg4()
-
-		generator.action_generate(number, f, prefix, limit)
+		generator.action_generate(n, f, p, l)
 
 	def generate3():
 
 		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		prefix = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
-		number = 5000000
-		limit = 9999999
+		p = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
+		n = 5000000
+		l = 9999999
 
 		Msg.msg4()
+		generator.action_generate(n, f, p, l)
 
-		generator.action_generate(number, f, prefix, limit)
-
-	def action_generate(number, f, prefix, limit):
+	def action_generate(n, f, p, l):
 
 		# GENERATOR
-		while number != limit:
+		while n != l:
 
-			number = number+1
-			f.write(str(prefix)+str(number)+'\n')
+			n = n+1
+			f.write(str(p)+str(n)+'\n')
+
 		f.close()
 
 		# COUNTER
 		f = open(f.name, "r+")
-		buf = mmap.mmap(f.fileno(), 0)
-		lines = 0
-		readline = buf.readline
-		while readline():
-			lines += 1
+		b = mmap.mmap(f.fileno(), 0)
+		l = 0
+		r = b.readline
+		while r():
 
+			l += 1
+
+		f.close()
 		clear()
 		banner()
 		print('''\
 
 
-		\033[1;38mDone generating list of numbers prefixed with '{}'.\033[1;m '''.format(prefix) + '''
+		\033[1;38mDone generating list of numbers prefixed with '{}'.\033[1;m '''.format(p) + '''
 
 		\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m
 
-		'''.format(lines))
+		'''.format(l))
 
 		main()
 
@@ -202,7 +203,7 @@ class Msg():
 
 def main():
 
-	usrInput = input('''\
+	user_input = input('''\
 
 
 	\033[1;38mSelect an option:\033[1;m
@@ -214,29 +215,29 @@ def main():
 
 	''')
 
-	if usrInput == "1":
+	if user_input == "1":
 
 		clear()
 		banner()
 		generator.generate1()
 
-	elif usrInput == "2":
+	elif user_input == "2":
 
 		clear()
 		banner()
 		generator.generate2()
 
-	elif usrInput == "3":
+	elif user_input == "3":
 
 		clear()
 		banner()
 		generator.generate3()
 
-	elif usrInput == "4":
+	elif user_input == "4":
 
 		Msg.quitProperly()
 
-	elif usrInput == "404":
+	elif user_input == "404":
 
 		Msg.fzf()
 		clear()
