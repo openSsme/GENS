@@ -55,40 +55,60 @@ class generator():
 
 	def generate1():
 
-		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		p = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
-		n = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
-		l = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
-
-		if n >= l:
-			Msg.msg3()
-			time.sleep(3)
+		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
+		if f.name == ".txt":
 			clear()
 			banner()
 			main()
+		else:
+			p = input("\n                \033[1;32mEnter a prefix:  \033[1;m")
+			n = int(input("\n                \033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
+			l = int(input("\n                \033[1;32mEnter range maximum:  \033[1;m"))
 
-		Msg.msg1() if l >= 1000000 else Msg.msg2()
-		generator.action_generate(n, f, p, l)
+			if n >= l:
+				Msg.msg3()
+				time.sleep(3)
+				clear()
+				banner()
+				main()
+
+			Msg.msg1() if l >= 1000000 else Msg.msg2()
+			generator.action_generate(n, f, p, l)
 
 	def generate2():
 
-		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		p = input("\n                \033[1;32mEnter prefix (carrier prefix, area code, country code):  \033[1;m")
-		n = 1000000
-		l = 9999999
+		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
+		if f.name == ".txt":
+			clear()
+			banner()
+			main()
+		else:
+			p = input("\n                \033[1;32mEnter prefix (carrier prefix, area code, country code):  \033[1;m")
+			n = 1000000
+			l = 9999999
 
-		Msg.msg4()
-		generator.action_generate(n, f, p, l)
+			Msg.msg4()
+			generator.action_generate(n, f, p, l)
 
 	def generate3():
 
-		f = open(input("\n\n                \033[1;32mEnter output filename:  \033[1;m") + ".txt" , 'w')
-		p = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
-		n = 5000000
-		l = 9999999
+		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
+		if f.name == ".txt":
+			clear()
+			banner()
+			main()
+		else:
+			p = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
+			n = 5000000
+			l = 9999999
 
-		Msg.msg4()
-		generator.action_generate(n, f, p, l)
+			if f == "":
+				clear()
+				banner()
+				main()
+
+			Msg.msg4()
+			generator.action_generate(n, f, p, l)
 
 	def action_generate(n, f, p, l):
 
