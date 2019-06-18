@@ -154,7 +154,7 @@ class Msg():
 		print('''\
 
 
-		\033[1;32mFirst number must be smaller or equal to last number.\033[1;m
+		\033[1;32mRange minimum must be smaller or equal to range maximum.\033[1;m
 
 		''')
 
