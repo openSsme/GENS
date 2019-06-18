@@ -57,6 +57,7 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
+			f.close()
 			clear()
 			banner()
 			main()
@@ -71,14 +72,15 @@ class generator():
 				clear()
 				banner()
 				main()
-
-			Msg.msg1() if l >= 1000000 else Msg.msg2()
-			generator.action_generate(n, f, p, l)
+			else:
+				Msg.msg1() if l >= 1000000 else Msg.msg2()
+				generator.action_generate(n, f, p, l)
 
 	def generate2():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
+			f.close()
 			clear()
 			banner()
 			main()
@@ -94,6 +96,7 @@ class generator():
 
 		f = open(input("\n\n                \033[1;32mEnter output file name (ENTER to go back):  \033[1;m") + ".txt" , 'w')
 		if f.name == ".txt":
+			f.close()
 			clear()
 			banner()
 			main()
@@ -101,11 +104,6 @@ class generator():
 			p = input("\n		\033[1;32mEnter area code (area code, country code+area code etc):  \033[1;m")
 			n = 5000000
 			l = 9999999
-
-			if f == "":
-				clear()
-				banner()
-				main()
 
 			Msg.msg4()
 			generator.action_generate(n, f, p, l)
