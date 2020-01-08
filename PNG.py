@@ -57,20 +57,20 @@ class generator():
 					else:
 						Msg.msg1() if int(rmax) >= 1000000 else Msg.msg2()
 						r = range(rmin, rmax)
-						generator.action_generate(fname, prefix, r)
+						generator.generate(fname, prefix, r)
 						break
 				except ValueError:
 					Msg.msg5()
 			if selection == "2":
 				Msg.msg4()
 				r = range(1000000, 9999999)
-				generator.action_generate(fname, prefix, r)
+				generator.generate(fname, prefix, r)
 			elif selection == "3":
 				Msg.msg4()
 				r = range(5000000, 9999999)
-				generator.action_generate(fname, prefix, r)
+				generator.generate(fname, prefix, r)
 
-	def action_generate(fname, prefix, r):
+	def generate(fname, prefix, r):
 
 		# GENERATOR
 		with open(fname, 'w') as f:
