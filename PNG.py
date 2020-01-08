@@ -75,8 +75,8 @@ class generator():
 		# GENERATOR
 		with open(fname, 'w') as f:
 			for i in r:
-				i += 1
 				f.write(str(prefix)+str(i)+'\n')
+				i += 1
 
 		# COUNTER
 		with open(fname, "r+") as f:
