@@ -68,12 +68,12 @@ class generator():
 
 			if selection == "2":
 				Msg.msg4()
-				r = range(1000000, 9999999)
+				r = range(1000000, 10000000)
 				generator.generate(fname, prefix, r)
 
 			elif selection == "3":
 				Msg.msg4()
-				r = range(5000000, 9999999)
+				r = range(5000000, 10000000)
 				generator.generate(fname, prefix, r)
 
 	def generate(fname, prefix, r):
