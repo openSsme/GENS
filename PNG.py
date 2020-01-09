@@ -15,7 +15,7 @@ def banner():
 	\033[1;37m--------------------------------------------------------------------------------------------
 	============================================================================================
 
-				    PHONE NUMBERS GENERATOR v3 BY\033[1;m
+				      PHONE NUMBERS GENERATOR v3 BY\033[1;m
 
 	\033[1;31m				██╗  ██╗ ██████╗ ██╗  ██╗
 					██║  ██║██╔═████╗██║  ██║
@@ -91,7 +91,7 @@ class generator():
 				line += 1
 
 		banner()
-		print("\n\n\t\t\033[1;38mDone generating list of numbers prefixed with '{}'.\033[1;m".format(prefix))
+		print("\n\n\t\t\033[1;38mSuccessfully generated a list of numbers prefixed with '{}'.\033[1;m".format(prefix))
 		print("\n\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(line))
 		main()
 
@@ -134,41 +134,46 @@ class Msg():
 
 
 def main():
-	user_input = input('''\
-
-
-	\033[1;38mSelect an option:\033[1;m
-
-	\033[1;31m[>]\033[1;m  \033[1;37m1)\033[1;m \033[1;32mGenerate custom range numbers\033[1;m
-	\033[1;31m[>]\033[1;m  \033[1;37m2)\033[1;m \033[1;32mGenerate cellphone numbers (israel)\033[1;m
-	\033[1;31m[>]\033[1;m  \033[1;37m3)\033[1;m \033[1;32mGenerate landline numbers (israel)\033[1;m
-	\033[1;31m[>]\033[1;m  \033[1;37m4)\033[1;m \033[1;31mQuit properly\033[1;m
-
-	''')
-
-	if user_input == "1":
-		banner()
-		generator.process(user_input)
-
-	elif user_input == "2":
-		banner()
-		generator.process(user_input)
-
-	elif user_input == "3":
-		banner()
-		generator.process(user_input)
-
-	elif user_input == "4":
-		Msg.quitProperly()
-
-	elif user_input == "404":
-		Msg.fzf()
-		reset()
+	if sys.version[0] is not "3":
+		print("\n\t\tThis program runs in Python3 only.\n")
+		sys.exit()
 
 	else:
-		Msg.NST()
-		time.sleep(2)
-		reset()
+		user_input = input('''\
+
+
+		\033[1;38mSelect an option:\033[1;m
+
+		\033[1;31m[>]\033[1;m  \033[1;37m1)\033[1;m \033[1;32mGenerate a custom range of numbers\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m2)\033[1;m \033[1;32mGenerate cellphone numbers (israel)\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m3)\033[1;m \033[1;32mGenerate landline numbers (israel)\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m4)\033[1;m \033[1;31mQuit properly\033[1;m
+
+		''')
+		if user_input == "1":
+			banner()
+			generator.process(user_input)
+
+		elif user_input == "2":
+			banner()
+			generator.process(user_input)
+
+		elif user_input == "3":
+			banner()
+			generator.process(user_input)
+
+		elif user_input == "4":
+			Msg.quitProperly()
+
+		elif user_input == "404":
+			Msg.fzf()
+			reset()
+
+		else:
+			Msg.NST()
+			time.sleep(2)
+			reset()
+
 
 if __name__ == "__main__":
-	reset()
+		reset()
