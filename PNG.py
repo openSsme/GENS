@@ -191,9 +191,9 @@ def main():
 
 		\033[1;38mSelect an option:\033[1;m
 
-		\033[1;31m[>]\033[1;m  \033[1;37m1)\033[1;m \033[1;32mGenerate a custom range of numbers\033[1;m
-		\033[1;31m[>]\033[1;m  \033[1;37m2)\033[1;m \033[1;32mGenerate cellphone numbers (israel)\033[1;m
-		\033[1;31m[>]\033[1;m  \033[1;37m3)\033[1;m \033[1;32mGenerate landline numbers (israel)\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m1)\033[1;m \033[1;32mGenerate a list of custom numbers\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m2)\033[1;m \033[1;32mGenerate a list of cellphone numbers (israel)\033[1;m
+		\033[1;31m[>]\033[1;m  \033[1;37m3)\033[1;m \033[1;32mGenerate a list of landline numbers (israel)\033[1;m
 		\033[1;31m[>]\033[1;m  \033[1;37m4)\033[1;m \033[1;31mQuit properly\033[1;m
 
 		''')
