@@ -36,52 +36,93 @@ class generator():
 
 	def process(selection):
 		fname = input("\n\n\t\t\033[1;32mEnter output file name (ENTER to go back):  \033[1;m")
+		r1 = range(1000000, 10000000)
+		r2 = range(5000000, 10000000)
 		if fname == '':
 			reset()
 
 		else:
-			while 1:
-				prefix = input("\n\t\t\033[1;32mEnter a prefix:  \033[1;m")
-				if (prefix.isdigit()): break
-				else: Msg.msg5()
-
 			while selection == "1":
-				try:
-					rmin = int(input("\n\t\t\033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
-					break
-				except ValueError:
-					Msg.msg5()
+				while 1:
+					prefix = input("\n\t\t\033[1;32mEnter a prefix number:  \033[1;m")
+					if (prefix.isdigit()): break
 
-			while selection == "1":
-				try:
-					rmax = int(input("\n\t\t\033[1;32mEnter range maximum:  \033[1;m"))
-					if rmin >= rmax:
-						Msg.msg3()
+					else: Msg.msg5()
+
+				while 1:
+					try:
+						rmin = int(input("\n\t\t\033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
+						break
+
+					except ValueError:
+						Msg.msg5()
+
+				while 1:
+					try:
+						rmax = int(input("\n\t\t\033[1;32mEnter range maximum:  \033[1;m"))
+						if rmin >= rmax:
+							Msg.msg3()
+
+						else:
+							Msg.msg1() if int(rmax) >= 1000000 else Msg.msg2()
+							r = range(rmin, rmax)
+							generator.generate(fname, prefix,r)
+							break
+
+					except ValueError:
+						Msg.msg5()
+
+			while selection != "1":
+				prefix = input("\n\t\t\033[1;32mEnter a prefix number ('all' for all possible combinations):  \033[1;m")
+				if (prefix.isdigit()):
+					if selection == "2":
+						Msg.msg4()
+						generate(fname, prefix, r1)
+						break
 
 					else:
-						Msg.msg1() if int(rmax) >= 1000000 else Msg.msg2()
-						r = range(rmin, rmax)
-						generator.generate(fname, prefix, r)
+						Msg.msg4()
+						generate(fname, prefix, r2)
 						break
-				except ValueError:
-					Msg.msg5()
 
-			if selection == "2":
-				Msg.msg4()
-				r = range(1000000, 10000000)
-				generator.generate(fname, prefix, r)
+				elif prefix == "all":
+					if selection == "2":
+						Msg.msg4()
+						enerate(fname, "mpfx", r1)
+						break
 
-			elif selection == "3":
-				Msg.msg4()
-				r = range(5000000, 10000000)
-				generator.generate(fname, prefix, r)
+					else:
+						Msg.msg4()
+						generate(fname, "lpfx", r2)
+						break
+
+				else:
+					Msg.msg6()
 
 	def generate(fname, prefix, r):
-		# GENERATOR
-		with open(fname, 'w') as f:
-			for i in r:
-				f.write(str(prefix)+str(i)+'\n')
-				i += 1
+		if (prefix.isdigit()):
+			with open(fname, 'w') as f:
+				for i in r:
+					f.write(str(prefix)+str(i)+'\n')
+					i += 1
+
+		else:
+			mpfx = ['050','052','053','054','055','057','058']
+			lpfx = ['02','03','04','08','09','071','072','073','074','075','076','077','078']
+			if prefix == "mpfx":
+				with open(fname, 'w') as f:
+					for i in mpfx:
+						for j in r:
+							f.write(str(i)+str(j)+'\n')
+							j += 1
+
+			else:
+				with open(fname, 'w') as f:
+					for i in lpfx:
+						for j in r:
+							f.write(str(i)+str(j)+'\n')
+							j += 1
+
 		# COUNTER
 		with open(fname, "r+") as f:
 			buffer = mmap.mmap(f.fileno(), 0)
@@ -90,8 +131,10 @@ class generator():
 			while read():
 				line += 1
 
+		if prefix == "mpfx": prefix = "all mobile prefixes"
+		elif prefix == "lpfx": prefix = "all landline prefixes"
 		banner()
-		print("\n\n\t\t\033[1;38mSuccessfully generated a list of numbers prefixed with '{}'.\033[1;m".format(prefix))
+		print("\n\n\t\t\033[1;38mSuccessfully generated a list of numbers prefixed with {}.\033[1;m".format(prefix))
 		print("\n\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(line))
 		main()
 
@@ -111,11 +154,15 @@ class Msg():
 
 	def msg4():
 		banner()
-		print("\n\n\t\t\033[1;32mGenerating. this might take a few seconds..\033[1;m\n")
+		print("\n\n\t\t\033[1;32mGenerating. this might take a while..\033[1;m\n")
 
 	def msg5():
 		banner()
 		print ("\n\n\t\t\033[1;31mUse only numbers\033[1;m\n")
+
+	def msg6():
+		banner()
+		print ("\n\n\t\t\033[1;31mUse only numbers or 'all'\033[1;m\n")
 
 	def quitProperly():
 		banner()
