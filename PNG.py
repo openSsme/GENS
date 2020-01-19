@@ -150,11 +150,15 @@ def display(msg, *args):
 	if msg == '10': print("\n\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(args[0]))
 	if msg == '11': banner(); print("\n\n\t\t\033[1;31mAUT VIAM INVENIAM AUT FACIAM\033[1;m\n")
 	if msg == '12': banner(); print("\n\t\tThis program runs in Python3 only.\n")
+	if msg == '13': banner(); print("\n\t\tThis program requires superuser privileges.\n")
 
 
 def main():
 	if sys.version[0] != "3":
 		display('12')
+		sys.exit()
+	elif os.getuid() != 0:
+		display('13')
 		sys.exit()
 
 	else:
