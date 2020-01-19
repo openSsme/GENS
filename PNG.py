@@ -62,7 +62,7 @@ def process(selection):
 					else:
 						display('1') if int(rmax) >= 1000000 else display('2')
 						custome_range = range(rmin, rmax)
-						generate(fname, prefix, custome_range)
+						write_to_file(fname, prefix, custome_range)
 						break
 
 				except ValueError:
@@ -75,29 +75,29 @@ def process(selection):
 			if (prefix.isdigit()):
 				if selection == "2":
 					display('4')
-					generate(fname, prefix, mobile_range)
+					write_to_file(fname, prefix, mobile_range)
 					break
 
 				else:
 					display('4')
-					generate(fname, prefix, landline_range)
+					write_to_file(fname, prefix, landline_range)
 					break
 
 			elif prefix == "all":
 				if selection == "2":
 					display('4')
-					generate(fname, "mpfx", mobile_range)
+					write_to_file(fname, "mpfx", mobile_range)
 					break
 
 				else:
 					display('4')
-					generate(fname, "lpfx", landline_range)
+					write_to_file(fname, "lpfx", landline_range)
 					break
 
 			else:
 				display('6')
 
-def generate(fname, prefix, range):
+def write_to_file(fname, prefix, range):
 	if (prefix.isdigit()):
 		with open(fname, 'w') as f:
 			for i in range:
