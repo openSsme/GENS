@@ -145,10 +145,10 @@ def display(msg, *args):
 	if msg == '5': banner(); print ("\n\n\t\t\033[1;31mUse only numbers\033[1;m\n")
 	if msg == '6': banner(); print ("\n\n\t\t\033[1;31mUse only numbers or 'all'\033[1;m\n")
 	if msg == '7': banner(); print("\n\n\t\t\033[1;31mQuitting.\033[1;m\n");
-	if msg == '8': banner(); print("\n\n\t\t\033[1;31mNo such thing.\033[1;m\n")
+	if msg == '8': banner(); print("\n\n\t\t\033[1;31mThis option doesn't exist.\033[1;m\n")
 	if msg == '9': banner(); print("\n\n\t\t\033[1;38mSuccessfully generated a list of numbers starting with {}.\033[1;m".format(args[0]))
 	if msg == '10': print("\n\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(args[0]))
-	if msg == '11': banner(); print("\n\n\t\t\033[1;31mCOMPLY, OBEY, CAUTERIZE\033[1;m\n")
+	if msg == '11': banner(); print("\n\n\t\t\033[1;31mAUT VIAM INVENIAM AUT FACIAM\033[1;m\n")
 	if msg == '12': banner(); print("\n\t\tThis program runs in Python3 only.\n")
 
 
@@ -174,9 +174,9 @@ def main():
 		elif user_input == "2": banner(); process(user_input)
 		elif user_input == "3": banner(); process(user_input)
 		elif user_input == "4": display('7'); time.sleep(1); os.system('cls' if os.name == 'nt' else 'printf "\033c"'); sys.exit()
-		elif user_input == "404": banner(); webbrowser.open('https://www.youtube.com/watch?v=iRq7Muf6CKg'); display('11')
-
+		elif user_input == "404": banner(); webbrowser.open('https://www.youtube.com/watch?v=iRq7Muf6CKg'); display('11'); main()
 		else: display('8'); time.sleep(2); reset()
+
 
 if __name__ == "__main__":
 		reset()
