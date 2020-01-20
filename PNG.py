@@ -33,21 +33,21 @@ def reset():
 	main()
 
 def process(selection):
-	fname = input("\n\n\t\t\033[1;32mName the output file (default: go back):  \033[1;m")
+	fname = input("\n\n\t\t\033[1;38mName the output file (default: go back):  \033[1;m")
 	if fname == '':
 		reset()
 
 	else:
 		while selection == "1":
 			while 1:
-				prefix = input("\n\t\t\033[1;32mEnter a prefix number:  \033[1;m")
+				prefix = input("\n\t\t\033[1;38mEnter a prefix number:  \033[1;m")
 				if (prefix.isdigit()): break
 
 				else: display('5')
 
 			while 1:
 				try:
-					rmin = int(input("\n\t\t\033[1;32mEnter range minimum (exclude prefix):  \033[1;m"))
+					rmin = int(input("\n\t\t\033[1;38mEnter range minimum (exclude prefix):  \033[1;m"))
 					break
 
 				except ValueError:
@@ -55,7 +55,7 @@ def process(selection):
 
 			while 1:
 				try:
-					rmax = int(input("\n\t\t\033[1;32mEnter range top:  \033[1;m"))
+					rmax = int(input("\n\t\t\033[1;38mEnter range top:  \033[1;m"))
 					if rmin >= rmax:
 						display('3')
 
@@ -71,7 +71,7 @@ def process(selection):
 		while selection != "1":
 			mobile_range = range(1000000, 10000000)
 			landline_range = range(5000000, 10000000)
-			prefix = input("\n\t\t\033[1;32mEnter a prefix number ('all' for all possible combinations):  \033[1;m")
+			prefix = input("\n\t\t\033[1;38mEnter a prefix number ('all' for all possible combinations):  \033[1;m")
 			if (prefix.isdigit()):
 				if selection == "2":
 					display('4')
@@ -138,16 +138,16 @@ def write_to_file(fname, prefix, range):
 
 def display(msg, *args):
 
-	if msg == '1': banner(); print("\n\n\t\t\033[1;32mGenerating. this might take a while for long numbers..\033[1;m\n")
-	if msg == '2': banner(); print("\n\n\t\t\033[1;32mGenerating...\033[1;m\n")
+	if msg == '1': banner(); print("\n\n\t\t\033[1;33mGenerating. this might take a while for long numbers..\033[1;m\n")
+	if msg == '2': banner(); print("\n\n\t\t\033[1;33mGenerating...\033[1;m\n")
 	if msg == '3': banner(); print("\n\n\t\t\033[1;31mTop of the range cannot be smaller than the minimum.\033[1;m\n")
-	if msg == '4': banner(); print("\n\n\t\t\033[1;32mGenerating. this might take a while..\033[1;m\n")
+	if msg == '4': banner(); print("\n\n\t\t\033[1;33mGenerating. this might take a while..\033[1;m\n")
 	if msg == '5': banner(); print ("\n\n\t\t\033[1;31mUse only numbers\033[1;m\n")
 	if msg == '6': banner(); print ("\n\n\t\t\033[1;31mUse only numbers or 'all'\033[1;m\n")
 	if msg == '7': banner(); print("\n\n\t\t\033[1;31mQuitting.\033[1;m\n");
 	if msg == '8': banner(); print("\n\n\t\t\033[1;31mThis option doesn't exist.\033[1;m\n")
-	if msg == '9': banner(); print("\n\n\t\t\033[1;38mSuccessfully generated a list of numbers starting with {}.\033[1;m".format(args[0]))
-	if msg == '10': print("\n\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(args[0]))
+	if msg == '9': banner(); print("\n\n\t\t\033[1;32mSuccessfully generated a list of numbers starting with {}.\033[1;m".format(args[0]))
+	if msg == '10': print("\n\t\t\033[1;32mCounted \033[1;34m{}\033[1;m \033[1;32mlines.\033[1;m".format(args[0]))
 	if msg == '11': banner(); print("\n\n\t\t\033[1;31mAUT VIAM INVENIAM AUT FACIAM\033[1;m\n")
 	if msg == '12': banner(); print("\n\t\tThis program runs in Python3 only.\n")
 	if msg == '13': banner(); print("\n\t\tThis program requires superuser privileges.\n")
